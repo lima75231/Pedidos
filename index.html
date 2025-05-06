@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Campanha Comboni</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #00695c;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #00695c;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      margin-top: 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #f0f0f0;
+      color: #555;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CAMPANHA COMBONI</h1>
+  </header>
+
+  <main>
+    <form action="#" method="post">
+      <label for="municipio">Nome do Município:</label>
+      <input type="text" id="municipio" name="municipio" required>
+
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" required>
+
+
+      <label for="produto">Produto/Serviço:</label>
+      <select name="entry.produto" id="produto" required>
+        <option value="">Selecione</option>
+        <option value="Ficha">Ficha</option>
+        <option value="PSA">PSA</option>
+        <option value="Toque de Mama">Toque de Mama</option>
+        <option value="Toque">Toque</option>
+        <option value="Mamografia">Mamografia</option>
+        <option value="Análise das Fichas PSA">Análise das Fichas PSA</option>
+        <option value="US Mama">US Mama</option>
+        <option value="RNM">R.N.M</option>
+        <option value="Análise de exames Mamografia/Ultrassom">Análise de exames Mamografia/Ultrassom</option>
+        <option value="US Urinárias">US Urinárias</option>
+        <option value="US Próstata">US Próstata</option>
+        <option value="Coleta de Biópsia">Coleta de Biópsia</option>
+        <option value="Análise de Biópsia">Análise de Biópsia</option>
+        <option value="Imuno">Imuno</option>
+        <option value="PAAF">PAAF</option>
+        <option value="Análise de PAAF">Análise de PAAF</option>
+        <option value="Outro">Outro</option>
+      </select>
+
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" name="entry.quantidade" id="quantidade" min="1" required>
+
+      <label for="obs">Observações:</label>
+      <textarea name="entry.observacoes" id="obs" rows="4" placeholder="Ex: Urgente, cliente preferencial, etc."></textarea>
+
+      <button type="submit">Enviar Pedido</button>
+    </form>
+  </main>
+
+  <iframe name="invisible_iframe" style="display:none;"></iframe>
+
+  <footer>
+    &copy; 2025 Sistema de Pedidos - Campanha Comboni
+  </footer>
+
+</body>
+</html>
