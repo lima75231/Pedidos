@@ -90,13 +90,19 @@
   </header>
 
   <main>
-    <form action="#" method="post">
+    <form id="campanha-form">
       <label for="municipio">Nome do Município:</label>
       <input type="text" id="municipio" name="municipio" required>
 
       <label for="data">Data:</label>
       <input type="date" id="data" name="data" required>
 
+      <label for="sexo">Sexo:</label>
+      <select name="entry.sexo" id="sexo" required>
+        <option value="">Selecione</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+      </select>
 
       <label for="produto">Produto/Serviço:</label>
       <select name="entry.produto" id="produto" required>
@@ -130,11 +136,48 @@
     </form>
   </main>
 
-  <iframe name="invisible_iframe" style="display:none;"></iframe>
-
   <footer>
     &copy; 2025 Sistema de Pedidos - Campanha Comboni
   </footer>
+
+  <script>
+    document.getElementById('campanha-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+
+      const data = {
+        data: {
+          municipio: form.municipio.value,
+          data: form.data.value,
+          sexo: form["entry.sexo"].value,
+          produto: form["entry.produto"].value,
+          quantidade: form["entry.quantidade"].value,
+          observacoes: form["entry.observacoes"].value
+        }
+      };
+
+      fetch("https://sheetdb.io/api/v1/ncghv4ql2gwb3", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Dados enviados com sucesso!");
+          form.reset();
+        } else {
+          alert("Erro ao enviar os dados.");
+        }
+      })
+      .catch(error => {
+        console.error("Erro:", error);
+        alert("Erro na conexão com a planilha.");
+      });
+    });
+  </script>
 
 </body>
 </html>
